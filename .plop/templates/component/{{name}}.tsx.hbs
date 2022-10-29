@@ -1,0 +1,31 @@
+import React, { useEffect } from 'react'
+{{#if form}}
+import { useController } from 'react-hook-form'
+{{/if}}
+
+import styles from './{{pascalCase name}}.module.scss'
+
+interface {{pascalCase name}}Props {}
+
+const {{pascalCase name}} = (props: {{pascalCase name}}Props) => {
+  {{#if form}}
+  const { name, defaultValue, rules, ...rest } = props
+
+  const {
+    field,
+    fieldState: { invalid, isTouched },
+    formState: { isValid }
+  } = useController({ name, defaultValue, rules })
+  {{else}}
+  // const {} = props
+  {{/if}}
+  
+  useEffect(() => {
+    //
+  }, [])
+
+  return <></>
+}
+
+export default {{pascalCase name}}
+export type { {{pascalCase name}}Props }
